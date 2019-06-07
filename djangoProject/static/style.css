@@ -1,0 +1,502 @@
+/** Jackson Lambert, Django Website, 5-8-19 **/
+/** Color Scheme
+#00edf9 - Light Neon Blue
+#fff - White
+##171d22 - a Very dark, navyish blue]
+rgb(240, 240, 240) - a very mild off-white that doesn't burn eyeballs
+**/
+
+/** Get Rid of default padding and margins **/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+/** Basic list/ anchor styling **/
+ul {
+    /** font is white, UL has no dashes/ decoration **/
+    color: #fff;
+    list-style-type: none;
+}
+a {
+    /**white font, no underline/underscore on anchored objects **/
+    color: #fff;
+    text-decoration: none;
+}
+a:hover {
+    /** #00edf9 - Light Neon Blue **/
+    color: #00edf9;
+    /** On hover, Anchor tags will become a bit transparent and it'll take .1 seconds **/
+    opacity: 65%;
+    transition: .1s;
+}
+
+.siteLink {
+    /** font size is scaleable at 1em, is white and has no decoration **/
+    font-size: 1em;
+    color: #fff;
+}
+
+body {
+    /** Body takes up the entire width and height, offwhite background **/
+    background: rgb(240, 240, 240);
+    width: 100%;
+    height: 100vh;
+    
+    /** Setting the font **/
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+}
+/** Home Page Styles **/
+/** big homeblocks for content **/
+.homeBlock {
+    background: #171d22;
+    width:45%;
+    height: auto;
+    border-radius: .5em;
+    color: #fff;
+    margin: 2em 2em 0 0;
+    padding: .5em;
+}
+/** 3rd is a bit bigger with a flex display **/
+.homeBlock:nth-child(3n) {
+    width: 69%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+/** block header text style **/
+.homeBlockHeader {
+    width: 100%;
+}
+.homeList {
+    margin-left: 1em;
+    list-style: square;
+}
+/** jackson image styling **/
+.meImage {
+    width: 13.5em;
+    height: 13.5em;
+    border-radius: 60%;
+    display: block;
+    margin: 0 auto;
+}
+/** text inside the block styling **/
+.homeBlockText {
+    width: 100%;
+}
+/** Container Styles **/
+.navContainer {
+    /** nav container takes up 10% of the vh, goes across the entire top the page **/
+    height: 10vh;
+    width: 100%;
+    /** Navyish blue background **/
+    background: #171d22;
+    /** contents in the container will flex **/
+    display: flex;
+}
+/** containre for all page content on pages **/
+.pageContentContainer {
+    /** contents in the container will flex and will wrap to the next level if reaching the end of the screen. **/
+    display: flex;
+    flex-wrap: wrap;
+    /** The container will take up 80% of the width and will be centered **/
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    /** content is in the center, and text within can break to another line, even if its in the same word **/
+    word-break: break-word;
+    justify-content: center;
+}
+/** where all the post info is shown in the /post page **/
+.postContainer {
+    /** post containers are flex, have the navyish blue background **/
+    background: #171d22;
+    display: flex;
+    flex-wrap: wrap;
+    /** each box has a bit of a border to give padding, along with margin between them **/
+    border: 4px solid black;
+    margin: .5em;
+    /** each take up the same width and a similar height, witch white font **/
+    width: 22%;
+    min-height: 10em;
+    max-height: 13em;;
+    color: #fff;
+}
+/** container for the individual page posts **/
+.bigContainer {
+    /** The container with items for large page views of posts will be centered, taking up 50% of its container width **/
+    width: 50%;
+    margin: 5em auto 2em auto;
+    /** That same reoccuring Navyblue background **/
+    background-color: #171d22;
+    /** Height scales with it's content **/
+    height: auto;
+    /** words can break to other lines, and it has a 1em padding at the bottom **/
+    word-break: break-all;
+    padding-bottom: 1em;
+}
+/** Signup/Login container styles **/
+.signupContainer {
+    /** display is flex and takes up 50% of container width **/
+    display: flex;
+    width: 50%;
+    /** has a height scalble to its features within **/
+    min-height: 25em;
+    max-height: 75%;
+    /** has a margin of 5em at the top and bottom and is centered **/
+    margin: 5em auto;
+    flex-wrap: wrap;
+    /** Navy blue background and white font color, ith 1.14em size **/
+    background: #171d22;
+    color: #fff;
+    font-size: 1.14em;
+}
+
+/** Nav Bar **/
+
+/** Text, and items in the nav bar **/
+.navItem {
+    width: 35vw;
+    height: 4vh;
+    margin: 2.5vh 0 0 4vw 
+}
+/** first  item is more to the right than the others **/
+.navItem:first-of-type {
+    margin-left: 10vw;
+}
+/** last of type will have its contents act different and have more margins **/
+.navItem:last-of-type {
+    margin: 2vh 10vw 0 25vw;
+    font-size: .5em;
+    width: 25vh;
+    display: flex;
+    align-items: space-between;
+    flex-wrap: wrap;
+    
+}
+.navLink {
+    /** links are white and have a underline of blue **/
+    color: #fff;
+    text-decoration: none;
+    /** #00edf9 - Light Neon Blue Border **/
+    border-bottom: .25vh solid #00edf9;
+    /** larger text **/
+    font-size: 2em;
+}
+/** nav link is a little more to the left if its last **/
+.navLink:last-of-type {
+    margin-left: .25em;
+}
+.userLoggedIn {
+/** font customization for the text displayed if the user is logged **/
+/** white color, 1.5em size, with margin and width set to fit the nav bar **/
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+    width: 12vw;
+}
+/** Site title to left **/
+.siteTitle {
+    /** large font, the itme is at the begging, with white font color **/
+    font-size: 3em;
+    align-self: flex-start;
+    margin-left: .25vw;
+    color: #fff;
+    /** #00edf9 - Light Neon Blue Border **/
+    border-bottom: .5vh solid #00edf9;
+    
+}
+/** style for the login / logout buttons in nav bar **/
+.logInOut {
+    /** white font, medium sized text **/
+    color: #fff;
+    margin-top: 1em;
+    margin-left: 5em;
+    font-size: 1em;
+}
+/** last loging logout itme has a left margin **/
+.logInOut:nth-of-type(1) {
+    margin-left: .25em;
+}
+
+/** Post Page Content **/
+.sectionTitle {
+    /** takes up 100% width of its container with black font **/
+    width: 100%;
+    color: black;
+}
+.post-title {
+    /** take up 100% of its container width **/
+    width: 100%;
+    /** has flexible height and font size **/
+    min-height: 10%;
+    max-height: 15%;
+    font-size: .8em;
+}
+.post-image {
+    /** post image takes up 100% of the width, along with the possibility to take 100% of the container height **/
+    width: 100%;
+    max-height: 100%;
+    min-height: 80%;
+    margin: 0 auto;
+}
+/** image links is large, with a max height of 70 **/
+.imageLink {
+    display: flex;
+    width: 100%;
+    max-height: 70%;
+}
+/** medium font-size, 100% width with a variable height **/
+.post-description {
+    font-size: 1em;
+    width: 100%;
+    max-height: 20%;
+    min-height: 0%;
+}
+
+.nameTime {
+    /** stretch to fit cointainer, with a smaller font, along iwth a negative margin to the top **/
+    align-self: stretch;
+    font-size: .75em;
+    width: 100%;
+    margin: -.5em 0 0 0;
+}
+.poster-name {
+    /** the name of the poster is smaller and is at the leading side of the box **/
+    font-size: .70em;
+    align-self: flex-start;
+}
+.uploadLink {
+    /** the upload link is larger than normal and is a contrasting color to other fonts **/
+    font-size: 1.25em;
+    width: 100%;
+    color: black;
+}
+
+/** Style for big page views **/
+.bigPicture {
+    /** big picture has block display **/
+    display: block;
+    /** the picture can take up anywhere from 60% to 100% of the container width **/
+    max-width: 98%;
+    min-width: 60%;
+    /** it's height is scalable to its contents **/
+    height: auto;
+    /** is centered with margins at the top **/
+    margin: 3em auto 0 auto;
+}
+.bigTitle {
+    /** big title spans the top of the container **/
+    width: 100%;
+    /** larger font, white color **/
+    font-size: 1.5em;
+    margin: .25em;
+    color: #fff;
+}
+.bigDesc {
+    /** description spans the bottom, with larger font and white color **/
+    font-size: 1.2em;
+    color: #fff;
+    width: 100%;
+}
+.bigDesc:last-of-type{
+    /** big descriptions last one has extra margin at the end **/
+    width: 85%;
+    margin: 2em auto 0 auto;
+}
+  
+
+/** Upload Form Style **/
+.uploadForm {
+    /** navy background **/
+    background-color: #171d22;
+    /** takes up 50% of its container and 80% of the vh **/
+    width: 50%; 
+    height: 80vh;
+    /** has margin to the top, being centered, with white font color **/
+    margin: 2em auto 0 auto;
+    color: #fff;
+}
+/** styles the forms title **/
+.formTitle {
+    /** larger font, with scalable margins **/
+    font-size: 1.5em;
+    margin: 5% 0 0 20%;
+}
+/** last title has sppecial margins **/
+.formTitle:nth-of-type(1) {
+    margin: 1% 0 0 20%;
+}
+/** takes up 10% of the vh **/
+.formInput {
+    height: 10vh;
+}
+/** submit upload botton, has margins, whilst having a black font **/
+.submitUpload {
+    margin: 5% 0 0 20%;
+    color: black;
+
+}
+/** Certain variables use #ids to describe themselves, these style those ides **/
+
+#id_description, #id_title {
+    /** margin is scalabe **/
+    margin: 1% 0 0 20%;
+    /** has a slightly rounded border **/
+    border: 1px solid grey;
+    border-radius: .5em;
+    /** takes up 10% of the viewheight, black font **/
+    height: 10vh;
+    color: black;
+}
+#id_cover {
+    /** pictures have no margin, slight radius, take up 5vh **/
+    margin: 1% 0 0 20%;
+    border: none;
+    border-radius: .5em;
+    height: 5vh;
+}
+
+/** Signup Page Styles **/
+
+.helpText {
+    /** help text is white, with margins and takes up 100% of a width of the container **/
+    color: #fff;
+    margin-left: .5em;
+    width: 100%;
+}
+/** error text shows up red **/
+.errorlist {
+    color: red;
+}
+/** submit button for signup page **/
+.signupSubmit {
+    /** slight border, with a scalable height and .5 margin on its left size **/
+    border: 1px solid #00edf9;
+    height: 1.5em;
+    margin-left: .5em;
+}
+/** labels have space between what they label **/
+label {
+    margin-left: .5em;
+}
+/** signup font **/
+.signUp {
+    width: 100%;
+    margin: .45em 0 0 .5em;
+    color: #fff;
+}
+
+/** empty div **/
+.empty {
+    display: none;
+}
+
+/** Style for Small-Medium Mobile Displays Vertical **/
+@media (min-width : 0px) and (max-width : 767px) and (orientation : portrait)   {
+    /** page content takes up more space **/
+    .pageContentContainer {
+        width: 99%;
+    }
+    /** nav gets toller and items go vertically instead of horizontally **/
+    .navContainer {
+        flex-direction: column;
+        height: 35vh;
+    }
+    /** site title, gets more margins and bigger **/
+    .siteTitle {
+        align-self: inherit;
+        margin-left: .25em;
+        font-size: 4em;
+    }
+    /** nav items take up more space and have top margins **/
+    .navItem {
+        width: 75%;
+        margin: 1em 0 0 0 ;
+    }
+    /** nav links get bigger **/
+    .navLink {
+        font-size: 2em;
+    }
+    /** more margins and bigger fonts **/
+    .logInOut {
+        margin: 1.5em 0 0 0;
+        font-size: 1em;
+    }
+    /** post container takes up more space and is taller **/
+    .postContainer {
+        width: 95%;
+        min-height: 20em;
+    }
+    /** post titles get bigger **/
+    .post-title {
+        font-size: .89em;
+    }
+    /** user uploaded name gets bigger **/
+    .poster-name {
+        font-size: 1.3em;
+    }
+    /** both containers gett bigger **/
+    .bigContainer {
+        width: 95%;
+    }
+    .signupContainer {
+        width: 90%;
+    }
+
+    .homeBlock {
+        width: 100%;
+    }
+    .homeBlock:nth-child(3n) {
+        margin-top: 2em;
+        width: 100%;
+        height: 75vh;
+    }
+    .meImage {
+        margin: 2em auto 0 auto;
+        width: 20em;
+        height: 20em;
+        
+    }
+}  
+/** Display for tablet displays **/
+@media (min-width : 768px) and (max-width:1280px)   {
+    /** nav is a bit taller **/
+    .navContainer {
+        height: 13vh;
+    }
+    /** page content is a bit bigger **/
+    .pageContentContainer {
+        width: 95%;
+    }
+    /** posts are 3% larger **/
+    .postContainer {
+        width: 25%;
+    }
+    /** more margins **/
+    .logInOut {
+        margin-left: 3em;
+    }
+    /** 25% bigger big containers **/
+    .bigContainer {
+        width: 75%;
+    }
+    /** homeblocks take up more width **/
+    .homeBlock {
+        width: 80%;
+    }
+    /** block stylings for tablet displays **/
+    .homeBlock:nth-child(3n) {
+        margin-top: 2em;
+        width: 80%;
+        height: 75vh;
+    }
+    /** image gets bigger **/s
+    .meImage {
+        margin: 2em auto 0 auto;
+        width: 20em;
+        height: 20em;
+    }
+}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class='pageContentContainer'>
+    <!-- Show where u r -->
+    <h1 class='sectionTitle'>Image Board</h1>
+    <!-- link to upload page-->
+    <a class='uploadLink' href='{% url "add_post" %}'>Create a new post</a>
+    {% for post in object_list reversed %}
+    <!-- load each post in the post list -->
+    <div class='postContainer' >
+        {% if post.title|length > 25 %}
+        <!-- splicing and posting the title if necessary -->
+        <a class='post-title' href='{% url "post_specific" post.id %}'>{{ post.title|slice:"55"|add:'....' }}</a>
+        {% else %}
+        <a class='post-title' href='{% url "post_specific" post.id %}'>{{ post.title }}</a>
+        {% endif %}
+        <!-- User who uploaded name-->
+        <a class='poster-name' href='{% url "profilepage" post.user %}'>Posted by {{ post.user }}</a>
+        {% if post.cover.url != None %}
+        <!-- what to do if there is no image and with-->
+          <a class='imageLink' href='{% url "post_specific" post.id %}'><img class='post-image' src="{{ post.cover.url }}" alt="{{ post.title }}"></a>
+        {% else %}
+          <div class='empty'></div>
+        {% endif %}
+        
+
+  </div>
+    {% endfor %}
+  </div>
+{% endblock %}

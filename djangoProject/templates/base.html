@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}fumblr{% endblock %}</title>
+</head>
+  <body>
+    <main>
+      {% load static %}
+      <!-- Linking Stylesheets and Fonts -->
+      <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+      <link href="{% static 'fonts/Quicksand.zip' %}"rel='stylesheet'>
+      <div class='navContainer'>
+          <div class='navItme'><a class= 'siteTitle' href='{% url "home" %}'>fumblr</a></div>
+          <div class='navItem'><a href='{% url "post" %}' class='navLink'>Image Board</a></div>
+          <!-- If user is logged in, load something different-->
+          {% if user.is_authenticated %}
+          <!-- show username of user logged in, give logout option-->
+          <div class='logInOut'>
+              <h1 class='logInOut'>Logged in as <a class='logInOut' href='{% url "profilepage" user.username %}'>{{ user.username  }}</a></h1>
+              <a href="{% url 'logout' %}" class='logInOut'>Logout</a>
+          
+          </div>
+          {% else %}
+          <!-- Show login and signup options-->
+          <div class='logInOut'>
+          <a href="{% url 'login' %}" class='navLink'>Login</a></div>
+          <div class='logInOut'>
+          <a href="{% url 'signup' %}" class='navLink'>Sign Up</a>
+        </div>
+        {% endif %}
+
+      </div>
+    </main>
+    {% block content %}
+    {% endblock %}
+    
+    
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='bigContainer'>
+<!-- big version of the post clicked on in the home post page-->
+<h2 class='bigTitle'>{{ title.title }}</h2>
+<h2 class='bigDesc'>Post by {{ title.user }}</h2>
+<h2 class='bigDesc'>Posted {{ title.dateTime }}</h2>
+<!-- handling when there is and isnt an image-->
+{% if title.cover.url != None %}
+<img class='bigPicture' src="{{ title.cover.url }}" alt="{{ title.title }}">
+{% else %}
+<div class='empty'></div>
+{% endif %}
+<!-- load the description associated with this page-->
+<h2 class='bigDesc lastDescMargin'>{{ title.description }}</h2>
+</div>
+
+{% endblock %}

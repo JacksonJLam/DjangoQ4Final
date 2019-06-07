@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- title for page -->
+<title>{% block title %}Upload to fumblr{% endblock %}</title>
+<!-- only load the form if the user is logged in-->
+{% if user.is_authenticated %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class='uploadForm'>
+    <p class='formTitle'>Post title</p>
+    <p class='formInput'>{{ form.title }}</p>
+    <p class='formTitle'>Upload an image</p>
+    <p class='formInput'>{{ form.cover }}</p>
+    <p class='formTitle'>Post description</p>
+    <p class='formInput'>{{ form.description }}</p>
+    <button class='submitUpload'type="submit">Submit</button>
+  </div>
+  
+</form>
+{% else %}
+<!-- tell them to back up if they arent logged in -->
+<h1 class='siteLink'>You need an account to upload here</h1>
+<h1>Please <a class='siteLink'href='{% url "login" %}'>Login</a> or <a class='siteLink' href='{% url "signup" %}'>Signup</a> to make a post</h1>
+
+{% endif %}
+{% endblock %}

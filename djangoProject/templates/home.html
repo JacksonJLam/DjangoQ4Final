@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<!--Each content section is split up into a block-->
+<div class='pageContentContainer'>
+    <div class='homeBlock'>
+        <!-- explaining the project -->
+        <h1 class='homeBlockHeader'>Welcome to fumblr!</h1>
+        <h3>This is my small django project for the final quarter of the 2018-2019 school year</h3>
+        <h3>On this page, you can signup and create your own user, upload images with descriptions and titles</h3>
+        <h3>It also as a WIP user profile system, where there will eventually be user profile pictures and bios, along with all the user's posts</h3>
+        <h3>For now, all they can do is tell if its your profile or someone elses, aswell letting you temporary set a bio and image</h3>
+    </div>
+    <!-- Show upcoming features-->
+    <div class='homeBlock'>
+        <h1 class='homeBlockHeader'>WIP Features</h1>
+        <ul class='homeList'>
+            <li>Functioning user profiles</li>
+            <li>Upvote/Downvote system</li>
+            <li>Follow/Ignore users</li>
+            <li>A homepage that displays new followed user posts</li>
+        </ul>
+    </div>
+    <div class='homeBlock'>
+        <!-- about me -->
+        <h1 class='homeBlockHeader'>  About the creator</h1>
+        <h3 class='homeBlockText'>Has been described as a "Total Disappointment" on multiple occassions</h3>
+        <h3 class='homeBlockText'>Created this website via tears, anger and total and complete luck</h3>
+        <h3 class='homeBlockText'>Probably going to get thrashed for this mediocre website</h3>
+        <h3 class='homeBlockText'>I don't know how to program, so this is probably a fluke of a</h3>
+        <img class='meImage' src="{% static 'IMG_20190606_132454.jpg' %}">
+    </div>
+</div>
+{% endblock %}

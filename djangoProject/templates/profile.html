@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- PROFILES ARE WIP, AS I RAN OUT OF TIME -->
+    <div class='content-section'>
+                <!-- Show the current user profiles-->
+                <h2>Welcome to {{ user_name }}'s profile</h2>
+            </div>
+            <!-- used to debug whether the current user is matching the user profile's owner-->
+            {{ user.username }}
+            {{ user_name }}
+            <!--If logged in user equals the profile owner, show different things-->
+            <!-- Slugify is needed so they both read as pure strings-->
+            {% if user_name|slugify == user.username|slugify %}
+            <h1>This is your profile</h1>
+            <!-- load the submission form for profile pic and bio-->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+            {% else %}
+            <!-- load something else if it isn't your profile-->
+            <h1>welcome to another persons party</h1>
+            {% endif %}
+            <!-- attempting to load these things -->
+            {{ bio }}
+            <img src="{{ picture.url }}">
+            
+            
+        </div>
+    </div>
+{% endblock %}

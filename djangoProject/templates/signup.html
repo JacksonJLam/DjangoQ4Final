@@ -1,0 +1,34 @@
+<!--Jackson Lambert 5-8-19
+Set website title to Sign up-->
+{% extends 'base.html' %}
+{% block title %}Sign Up {% endblock %}
+
+{%block content %}
+<!--Create a sign up area, that takes in user input-->
+    <form method='POST'>
+        <!--Create a csrf token for added security-->
+        {% csrf_token %}
+        <div class='signupContainer'>
+        <!-- load different things depending on the path-->
+        {% if request.get_full_path == "/accounts/login/" %}
+            <h2 class='signUp'>Login</h2>
+        {% else %}
+            <h2 class='signUp'>Sign up</h2>
+        {% endif %}
+        {% for field in form.visible_fields %}
+        <!-- load all fields and their tags-->
+        <p>{{ field.label_tag }}
+        {{ field }}</p>
+        <!-- load that error text -->
+        <div class='helpText'>{{ field.help_text }}</div>
+        <p class='error'>{{ field.errors }} </p>
+        
+        {% endfor %}
+        <!-- submit button -->
+        <button class='signupSubmit' type='submit'>Sign up</button>
+    </div>
+    </form>
+
+        
+    </form>
+{% endblock %}
